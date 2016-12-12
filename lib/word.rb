@@ -5,18 +5,13 @@ class Word
 
   define_method(:initialize) do |attributes|
     @spelling = attributes.fetch(:spelling)
-    @meaning = attributes.fetch(:meaning)
-    @pronounciation = attributes.fetch(:pronounciation)
-    @lexical_class = attributes.fetch(:lexical_class)
+    @definitions = []
     @id = @@words.length + 1
     @@words.push(self)
   end
 
-  define_method(:edit_word) do |word, attributes|
-    @spelling = attributes.fetch(:spelling)
-    @meaning = attributes.fetch(:meaning)
-    @pronounciation = attributes.fetch(:pronounciation)
-    @lexical_class = attributes.fetch(:lexical_class)
+  define_method(:define) do |definition|
+    @definitions.push(definition)
   end
 
   define_singleton_method(:all) do

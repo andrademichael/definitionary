@@ -4,7 +4,7 @@ require('word')
 require('definition')
 
 describe(Definition) do
-  #Unit Spec 1
+
   describe("#initialize") do
     it("creates new Definition object") do
       test_def1 = Definition.new("word1 is a test word")
@@ -20,13 +20,19 @@ describe(Word) do
   test_def2 = Definition.new("word2 is also a test word")
   test_word2 = Word.new({:spelling=> "wordtwo", :meaning=>  test_def2, :pronounciation=> "wɜːd2", :lexical_class=> "noun"})
 
-  #Unit Spec 2
+
   describe("#initialize") do
     it("creates new Word object") do
       expect(test_word1).to(eq(test_word1))
     end
   end
-  #Unit Spec 3
+
+  describe("#define") do
+    it("adds a definition string to the word's definitions array")
+      test_word1.define(test_def1)
+      expect(test_word1.definitions).to(eq(["word1 is a test word"])))
+  end
+
   describe(".all") do
     it("returns the array of all created words") do
       expect(Word.all).to(eq([test_word1, test_word2]))
