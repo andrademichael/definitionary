@@ -1,0 +1,15 @@
+<h1 id="current_word" name="current_word"><%= @word.spelling %></h1>
+<ul>
+  <% @word.definitions.each do |definition| %>
+    <li><%= definition.text %></li>
+  <% end %>
+</ul>
+
+<form class="" action="/word/<%= @word.id() %>" method="post">
+  <label class="form-group" for="new_def">Write your own definition for this word:</label>
+  <input class="form-group" type="text" name="new_def" id="new_def">
+  <br>
+  <button class="btn btn-success" type="submit">Add this definition!</button>
+</form>
+<br>
+<a href="/" class="btn btn-primary">Return to Homepage?</a>

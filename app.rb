@@ -7,31 +7,34 @@ also_reload('lib/**/*.rb')
 
 #A couple default words to start us off
 party = Word.new({:spelling => "party"})
-party.define(["noun - a gathering of people, may include music", "verb - To live one's life as Andrew W.K. would."])
+partydef = Definition.new("noun - a gathering of people, may include music")
 spinning = Word.new({:spelling => "spinning"})
-spinning.define(["The process of a weaver combining threads into yarn", "The act of playing a song, or set of songs, at a party"])
-
+spinningdef = Definition.new("The act of playing a song, or set of songs, at a party")
+party.define_word(partydef)
+spinning.define_word(spinningdef)
 #Home
 get("/") do
   erb(:index)
 end
 
-#List all words
-get("/words") do
-  @words = Word.all
-  erb(:words)
-end
-
 #Create a new word
 post("/") do
-  spelling = params.fetch("spelling")
-  word = Word.new({spelling => :spelling})
+  spelling = params.fetch("new_word_input")
+  word = Word.new({:spelling => spelling})
   erb(:index)
 end
 
 #View a single word, add definitions to it
 get("/word/:id") do
+  @word = Word.find(params.fetch("id"))
+  erb(:word)
+end
 
-  @word = Word.find(params.fetch("new_word_input"))
+#View a word after adding a definition
+post("/word/:id") do
+  new_definition = params.fetch("new_def")
+  definition = Definition.new(new_definition)
+  @word = Word.find(params.fetch("id"))
+  @word.define_word(definition)
   erb(:word)
 end

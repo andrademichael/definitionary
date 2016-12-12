@@ -7,7 +7,7 @@
   <div class="col-lg-12">
     <ul>
       <% Word.all().each do |word| %>
-        <li><a href="/words/<%= word.id() %>"><%= word.spelling() %></a></li>
+        <li><a href="/word/<%= word.id() %>"><%= word.spelling() %></a></li>
       <% end %>
     </ul>
   </div>
@@ -17,6 +17,7 @@
     <form action="/" method="post">
       <label for="new_word_input">Enter A Fancy New Word!</label>
       <input type="text" name="new_word_input" id="new_word_input">
+      <button type="submit" name="new_word_form_button">Add to the Definitionary!</button>
     </form>
   </div>
 </div>
