@@ -1,0 +1,22 @@
+<div class="jumbotron">
+  <h1>Welcome to the Definitionary,</h1>
+  <h2><em>where your wildest word dreams can come true!</em></h2>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <ul>
+      <% Word.all().each do |word| %>
+        <li><a href="/words/<%= word.id() %>"><%= word.spelling() %></a></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <form action="/" method="post">
+      <label for="new_word_input">Enter A Fancy New Word!</label>
+      <input type="text" name="new_word_input" id="new_word_input">
+    </form>
+  </div>
+</div>

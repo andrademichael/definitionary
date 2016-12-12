@@ -14,6 +14,10 @@ class Word
     @definitions.push(definition)
   end
 
+  define_method(:==) do |word1, word2|
+    word1.spelling == word2.spelling
+  end
+
   define_singleton_method(:all) do
     @@words
   end
