@@ -19,7 +19,7 @@ end
 #Create a new word
 post("/words") do
   spelling = params.fetch("spelling")
-  word = Word.new({spelling})
+  word = Word.new({spelling => :spelling})
   erb(:index)
 end
 

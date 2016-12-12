@@ -6,5 +6,4 @@ class Definition
   define_method(:initialize) do |definition_text|
     @definition = definition_text
   end
-
 end

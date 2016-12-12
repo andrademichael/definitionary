@@ -28,9 +28,10 @@ describe(Word) do
   end
 
   describe("#define") do
-    it("adds a definition string to the word's definitions array")
+    it("adds a definition string to the word's definitions array") do
       test_word1.define(test_def1)
-      expect(test_word1.definitions).to(eq(["word1 is a test word"])))
+      expect(test_word1.definitions).to(eq([test_def1]))
+    end
   end
 
   describe(".all") do

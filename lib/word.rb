@@ -1,7 +1,7 @@
 class Word
 
   @@words = []
-  attr_reader :spelling, :meaning, :pronounciation, :lexical_class, :id
+  attr_reader :spelling, :definitions, :id
 
   define_method(:initialize) do |attributes|
     @spelling = attributes.fetch(:spelling)
